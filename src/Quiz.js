@@ -14,7 +14,7 @@ class Quiz extends Component{
         if(isQuizEnd){
             return(
                 <div>
-                    <QuizEnd hidden = {!isQuizEnd}/>
+                    <QuizEnd hidden = {!isQuizEnd} resetClickHandler={this.handleResetClick.bind(this)}/>
                 </div>
             )
         }
