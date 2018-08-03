@@ -10,13 +10,21 @@ class Quiz extends Component{
         this.state = {quiz_position: 1};
     }
     render(){
-        const isQuizEnd = false; //(this.state.quiz_position - 1 === quizData.quiz_questions.length);
-        return(
+        const isQuizEnd = (this.state.quiz_position - 1 === quizData.quiz_questions.length);
+        if(isQuizEnd){
+            return(
+                <div>
+                    <QuizEnd hidden = {!isQuizEnd}/>
+                </div>
+            )
+        }
+        else{
+            return(
             <div>
-                <QuizEnd hidden = {!isQuizEnd}/>
                 <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]}/>
             </div>
-        )
+            )
+        }
     }
 }
 export default Quiz;
